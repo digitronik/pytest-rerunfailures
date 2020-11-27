@@ -7,6 +7,7 @@ env:
 
 jobs:
   build:
+    name: pre-commit
     runs-on: ubuntu-latest
 
     steps:
@@ -34,7 +35,6 @@ jobs:
           python -m pip install pre-commit
 
       - name: Lint
-        run: |
-          pre-commit run --all-files --show-diff-on-failure
+        run: pre-commit run --all-files --show-diff-on-failure
         env:
           PRE_COMMIT_COLOR: always
